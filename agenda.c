@@ -70,25 +70,14 @@ void novoContato(void *pB){
 
     pB = realloc(buffer, (sizeof(int)*2+(sizeof(char)*20 + sizeof(int))*(*qnt));
 
+    nome = pB + sizeof(int)*2+(sizeof(char)*20 + sizeof(int))*(*qnt-1);
+    num = pB + sizeof(int)*2+(sizeof(char)*20 + sizeof(int))*(*qnt-1) + sizeof(char)*20;
+
     printf("Nome: \n");
     scanf("%s20", nome);
 
     printf("Numero: \n");
     scanf("%d", numero);
-
-    *tamAux = (*tamAux) * (*qnt);
-
-       if(qnt==1){
-    nome = pB + sizeof(int)*2;
-    num = pB + sizeof(int)*2 + sizeof(char)*20;}
-
-           else{
-    nome = pB + sizeof(int)*2+(sizeof(char)*20 + sizeof(int))*(*qnt);
-    num = pB + sizeof(int)*2+(sizeof(char)*20 + sizeof(int))*(*qnt) + sizeof(char)*20;
-
-    }
-
-
 
 }
 
@@ -107,6 +96,9 @@ break;
     else{
 
 for(int i=0;i<qnt;i++){
+
+nome = pB + sizeof(int)*2+(sizeof(char)*20 + sizeof(int))*(*qnt-1);
+num = pB + sizeof(int)*2+(sizeof(char)*20 + sizeof(int))*(*qnt-1) + sizeof(char)*20;
 
 }
 
