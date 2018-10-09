@@ -8,6 +8,12 @@ void listarContatos(void *pB);
 void ordenaçãoBF(void *pB);
 void ordenaçaoInsert(void *pB);
 
+typedef struct agenda{
+
+int indx;
+char nome[20];
+int num;
+}agen;
 
 int *qnt = NULL;
 int *num = NULL;
