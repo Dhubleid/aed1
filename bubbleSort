@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void bubble_sort(int *pBuffer);
+
+int *n = NULL;
+
+int main(){
+
+int *pBuffer;
+
+pBuffer=malloc(sizeof(int));
+if(pBuffer==NULL){
+exit(1);}
+
+n=pBuffer;
+
+printf("\nDigite n:\n");
+scanf("%d",n);
+
+realloc(pBuffer,sizeof(int)*(n+1));
+
+print
+
+return 0;
+
+
+}
+void bubble_sort (int *pBuffer) {
+    int i, j, aux;
+
+    for (i = n; j > 0; j--) {
+        printf("\n[%d] ", i);
+
+        for (j = 0; j < k; j++) {
+            printf("%d, ", j);
+
+            if (vetor[j] > vetor[j + 1]) {
+                aux          = vetor[j];
+                vetor[j]     = vetor[j + 1];
+                vetor[j + 1] = aux;
+            }
+        }
+    }
+}
