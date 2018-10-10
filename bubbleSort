@@ -1,51 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-void bubble_sort(int vet[],int n);
-
-int main(){
-
-int n,i;
-
-printf("\nDigite N\n");
-scanf("%d",&n);
-
-int vet[n];
-
-printf("\nDigite os numeros:\n");
-
-for(i=0;i<n;i++){
-
-    scanf("%d",&vet[i]);
-
-    }
-
-printf("\n");
-
-for(int i=0;i<n;i++){
-
-    printf(" %d ",vet[i]);
-
-}
-
-
-bubble_sort(vet,n);
-
-printf("\nNumeros Ordenados\n");
-
-for(int i=0;i<n;i++){
-
-    printf(" %d ",vet[i]);
-
-}
-
-
-//*#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 void bubble_sort(int vet[],int n);
-void bubble_sortOrdemA(char nomes[],int k);
+void bubble_sortOrdemA(char nomes[][20],int k);
 
 int main(){
 
@@ -83,7 +41,7 @@ for(int i=0;i<n;i++){
 
 }
 
-printf("\nDigite a quantidade de numeros:\n");
+printf("\nDigite a quantidade de strings:\n");
 
 int k;
 
@@ -91,22 +49,26 @@ scanf("%d",&k);
 
 char nomes[k][20];
 
+getchar();
+
+printf("\nDigite os nomes:");
+
 for(i=0;i<k;i++){
     fgets(nomes[i],20,stdin);
-}
+} 
 
-printf("\nNomes: \n");
+printf("\nNomes:");
 
 for(i=0;i<k;i++){
-    printf("%s",nomes[i]);
+    printf("\n%s",nomes[i]);
 }
 
-bubble_sortOrdemA(nomes[k],k);
+bubble_sortOrdemA(nomes,k);
 
 printf("\nNomes Ordenados: \n");
 
 for(i=0;i<k;i++){
-    printf("%s",nomes[i]);
+    printf("\n%s",nomes[i]);
 }
 
 
@@ -129,13 +91,13 @@ void bubble_sort(int vet[],int n){
 
 }
 
-void bubble_sortOrdemA(char nomes[],int k){
+void bubble_sortOrdemA(char nomes[][20],int k){
     int i, j;
     char aux[20];
 
     for (i =k-1; i>0; i--) {
         for (j = 0; j < i; j++) {
-            if ((strcmp(nomes[j],nomes[j+1]))>0) {
+            if ( (strcmp( nomes[j], nomes[j+1] ) ) > 0 ) {
                 strcpy(aux,nomes[j]);
                 strcpy(nomes[j],nomes[j+1]);
                 strcpy(nomes[j+1],aux);
@@ -147,21 +109,3 @@ void bubble_sortOrdemA(char nomes[],int k){
 
 
 
-return 0;
-
-
-}
-void bubble_sort(int vet[],int n){
-    int i, j, aux;
-
-    for (i = n-1; i>0; i--) {
-        for (j = 0; j < i; j++) {
-            if (vet[j] > vet[j + 1]) {
-                aux = vet[j];
-                vet[j] = vet[j+1];
-                 vet[j+1] = aux;
-            }
-        }
-    }
-
-}
