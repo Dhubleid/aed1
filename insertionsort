@@ -105,8 +105,3 @@ void insertion_sortOA(char nomes[][20],int k){
 
       strcpy(nomes[j+1],aux);}
   }
-
-
-
-
-
