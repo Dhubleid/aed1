@@ -95,11 +95,11 @@ void insertion_sortOA(char nomes[][20],int k){
     int i, j;
     char aux[20];
 
-    for(i=1;i<n;i++){
+    for(i=1;i<k;i++){
       strcpy(aux,nomes[i]);
       j=i-1;
 
-      while(j>=0 && (strcmp(nomes(j),aux)>0){
+      while(j>=0 && (strcmp(nomes[j],aux)>0)){
         strcpy(nomes[j+1],nomes[j]);
         j--;}
 
