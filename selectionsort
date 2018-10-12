@@ -1,0 +1,108 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void selection_sort(int vet[],int n);
+void selection_sortOA(char nomes[][20],int k);
+
+int main(){
+
+int n,i;
+
+printf("\nDigite N\n");
+scanf("%d",&n);
+
+int vet[n];
+
+printf("\nDigite os numeros:\n");
+
+for(i=0;i<n;i++){
+
+    scanf("%d",&vet[i]);
+
+    }
+
+printf("\n");
+
+for(int i=0;i<n;i++){
+
+    printf(" %d ",vet[i]);
+
+}
+
+
+selection_sort(vet,n);
+
+printf("\n\nNumeros Ordenados\n");
+
+for(int i=0;i<n;i++){
+
+    printf(" %d ",vet[i]);
+
+}
+
+printf("\nDigite a quantidade de strings:\n");
+
+int k;
+
+scanf("%d",&k);
+
+char nomes[k][20];
+
+getchar();
+
+printf("\nDigite os nomes:");
+
+for(i=0;i<k;i++){
+    fgets(nomes[i],20,stdin);
+}
+
+printf("\nNomes:");
+
+for(i=0;i<k;i++){
+    printf("\n%s",nomes[i]);
+}
+
+selection_sortOA(nomes,k);
+
+printf("\nNomes Ordenados: \n");
+
+for(i=0;i<k;i++){
+    printf("\n%s",nomes[i]);
+}
+
+
+return 0;
+
+
+}
+void selection_sort(int vet[],int n){
+    int i, j,min ,aux;
+
+    for(i=0;i<n-1;i++){
+		min=i;
+		for(j=i+1;j<n;j++){
+			
+			if(vet[j]<vet[min]){
+				min=j;}
+			}
+		aux=vet[i];
+		vet[i]=vet[min];
+		vet[min]=aux;}
+}
+
+void selection_sortOA(char nomes[][20],int k){
+    int i, j,min;
+    char aux[20];
+
+    for(i=0;i<k-1;i++){
+      min=i;
+      for(j=i+1;j<k;j++){
+		  if(strcmp(nomes[j],nomes[min])<0){
+			  min=j;}
+		  }
+		strcpy(aux,nomes[i]);
+		strcpy(nomes[i],nomes[min]);
+		strcpy(nomes[min],aux);}
+}
+   
