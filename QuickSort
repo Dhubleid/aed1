@@ -1,0 +1,146 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void quick_sort(int vet[],int l, int r);
+void quick_sortOA(char nomes[][20],int l, int r);
+
+int main(){
+
+int n, i,l=0, r;
+
+printf("\nDigite N\n");
+scanf("%d",&n);
+
+r= n-1;
+
+int vet[n];
+
+printf("\nDigite os numeros:\n");
+
+for(i=0;i<n;i++){
+
+    scanf("%d",&vet[i]);
+
+    }
+
+printf("\n");
+
+for(int i=0;i<n;i++){
+
+    printf(" %d ",vet[i]);
+
+}
+
+
+quick_sort(vet,l,r);
+
+printf("\n\nNumeros Ordenados\n");
+
+for(int i=0;i<n;i++){
+
+    printf(" %d ",vet[i]);
+
+}
+
+printf("\nDigite a quantidade de strings:\n");
+
+int k;
+
+scanf("%d",&k);
+
+r=k-1;
+
+char nomes[k][20];
+
+getchar();
+
+printf("\nDigite os nomes:");
+
+for(i=0;i<k;i++){
+    fgets(nomes[i],20,stdin);
+}
+
+printf("\nNomes:");
+
+for(i=0;i<k;i++){
+    printf("\n%s",nomes[i]);
+}
+
+quick_sortOA(nomes,l,r);
+
+printf("\nNomes Ordenados: \n");
+
+for(i=0;i<k;i++){
+    printf("\n%s",nomes[i]);
+}
+
+
+return 0;
+
+
+}
+void quick_sort(int vet[],int l, int r){
+
+	int i=l, j=r;
+    int mid, aux;
+
+	mid = vet[(l+r)/2];
+	
+		
+    do{
+		while(vet[i]<mid){
+			i++;}
+		while(vet[j]>mid){
+			j--;}
+		
+		if(i<=j){
+					
+		aux=vet[i];
+		vet[i]=vet[j];
+		vet[j]=aux;
+		
+		i++;
+		j--;}
+	}
+	while(i<=j);
+	
+	if(l<j){
+		quick_sort(vet,l,j);}
+	
+	if(i<r){
+		quick_sort(vet,i,r);}
+		
+	}
+
+void quick_sortOA(char nomes[][20],int l, int r){
+    int i=l, j=r;
+    char aux[20],mid[20];
+
+	strcpy(mid,nomes[(l+r)/2]);
+
+   do{
+	   
+		while(strcmp(nomes[i],mid)<0){
+		  i++;}
+	
+		while(strcmp(nomes[j],mid)>0){
+		j--;}
+		
+		if(i<=j){
+					  
+		strcpy(aux,nomes[i]);
+		strcpy(nomes[i],nomes[j]);
+		strcpy(nomes[j],aux);
+		i++;
+		j--;}
+	
+	}while(i<=j);
+	
+	if(l<j){
+		quick_sortOA(nomes,l,j);}
+	
+	if(i<r){
+		quick_sortOA(nomes,i,r);}
+}
+   
