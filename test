@@ -1,119 +1,56 @@
+#include <stdlib.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#define Tint sizeof(int)
 
-void *B = NULL;
-
-int *i = NULL;
-
-int *j = NULL;
-
-int *aux = NULL;
-
-void bs(int *pv[], int *aux);
-
-
-int *i = NULL;
-
-int main(){
-
-B = malloc(11*Tint);
-
-i = B + 7*Tint;
-
-j = B + 8*Tint;
-
-int *aux = B + 9*Tint;
-
-int *Pint = B;
-
-int *pv[7];
-
-int Vet[] = {9,5,21,6,7,1,0};
-
-for(int i=0; i<7; i++){
-	*Pint = Vet[i];
-	Pint++;}
-
-Pint = B;
-
-
-for(int i=0; i<7; i++){
-	printf("%d ", *Pint);
-	Pint++;}
-
-Pint = B;
-
-for(int i=0; i<7; i++){
-	*pv[i] = *Pint; 
-	Pint++;}
+int *rd(int *v, int n)
+{
+	int i,j,k=0,*r;
 	
-bs(pv,aux);
-
-Pint = B;
-
-for(int i=0; i<7; i++){
-	*Pint = *pv[i];
-	Pint++;}
-
-
-printf("\n");
-
-Pint = B;
-
-for(int i=0; i<7; i++){
-	printf("%d ", *Pint);
-	Pint++;}
+	r = malloc(sizeof(int));
 	
-
-return 0;
-}
-
-void bs(int *pv[], int *aux){
-		
-	for(*i=6;*i>0;(*i)--){
-		for(*j=0;*j<*i;(*j)++){
-			if(pv[*j] > pv[*j+1]){
-				*aux = *pv[*j];
-				*pv[*j] = *pv[*j+1];
-				*pv[*j+1] = *aux;}
-			}
+	for(i=0; i<n; i++)
+	{
+		for(j=0; j<k; j++)
+		{
+			if(v[i] == r[j])
+				break;
 		}
-	} 
-				
-				
-				
-				
-				
-				
-				#include <stdio.h>
-#include <stdlib.h>
-
-int *remove(int *v,n){
-	int i,aux,*r;
-	
-	r = malloc(sizeof(int);
-	
-	for(i=0;i<n;i++)
-		for(j=0;j<n;j++)
+		
+		if(j == k)
+		{
+					
+			r[k] = v[i];
+			k++;
+			
+		r = realloc(r,(k+1)*sizeof(int));	
+					
+		}
+		
+		
 			
 	}
+
+return r;
+
+}
 
 int main()
 {
 
 int n,i;
 
-printf("Digite o tamnho do vetor:n");
+printf("Digite o tamnho do vetor:\n");
 scanf("%d", &n);
 
 int vet[n];
+int *saida;
 
 for(i=0;i<n;i++)
 	scanf("%d",&vet[i]);
+
+saida = rd(vet, n);
 	
-	
+	for(i=0; i<sizeof(saida)/sizeof(int); i++)
+		printf("%d ", saida[i]);
 
 
 
@@ -121,6 +58,3 @@ for(i=0;i<n;i++)
 return 0;
 
 }
-
-		
-	
