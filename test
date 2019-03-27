@@ -14,6 +14,7 @@ int *aux = NULL;
 void bs(int *pv[], int *aux);
 
 
+int *i = NULL;
 
 int main(){
 
@@ -81,5 +82,45 @@ void bs(int *pv[], int *aux){
 		}
 	} 
 				
+				
+				
+				
+				
+				
+				#include <stdio.h>
+#include <stdlib.h>
+
+int *remove(int *v,n){
+	int i,aux,*r;
+	
+	r = malloc(sizeof(int);
+	
+	for(i=0;i<n;i++)
+		for(j=0;j<n;j++)
+			
+	}
+
+int main()
+{
+
+int n,i;
+
+printf("Digite o tamnho do vetor:n");
+scanf("%d", &n);
+
+int vet[n];
+
+for(i=0;i<n;i++)
+	scanf("%d",&vet[i]);
+	
+	
+
+
+
+
+return 0;
+
+}
+
 		
 	
