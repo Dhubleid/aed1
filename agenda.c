@@ -5,31 +5,31 @@ void novoContato(void *pB);
 void buscaContato(void *pB);
 void apagarContato(void *pB);
 void listarContatos(void *pB);
-void ordenaçãoBF(void *pB);
 void ordenaçaoInsert(void *pB);
 
 typedef struct agenda{
+    char nome[20];
+    int num;
+};
 
-int indx;
-char nome[20];
-int num;
-}agen;
-
+void *pB = NULL;
 int *qnt = NULL;
-int *num = NULL;
-char *nome = NULL;
-
-int main(){
-    void *pB = NULL;
-
-    int *aux = NULL;
+int *i = NULL;
+int *aux = NULL;
+int *j = NULL;
+agenda *pessoa = NULL;
+char *auxc = NULL;
 
 
+int main()
+{
 
-    pB = malloc(sizeof(int)*2);
-        if(pB == NULL){
+    int *opc;
+
+    if( !(pB = malloc(5*sizeof(int) + 30*sizeof(char) + sizeof(agenda))) )
             exit(1);
-        }
+
+
     opc = pB;
     qnt = pB + sizeof(int);
 
@@ -58,11 +58,11 @@ int main(){
        break;
 
        case 0:
-       return 0;
+        return 0;
        break;
 
        default :
-       printf("\nOpcao Invalida\n");
+        printf("\nOpcao Invalida\n");
        }
 
     }while(opc!=0);
@@ -74,20 +74,31 @@ void novoContato(void *pB){
 
     *qnt ++;
 
-    pB = realloc(buffer, (sizeof(int)*2+(sizeof(char)*20 + sizeof(int))*(*qnt));
+    if(*qnt == 1)
+        pessoa = pB + 5*sizeof(int) + 30*sizeof(char);
+        else
+            pB = realloc(pB, 5*sizeof(int) + 30*sizeof(char) + *qnt * sizeof(agenda))
+            pessoa = pB + 5*sizeof(int) + 30*sizeof(char) + (*qnt - 1) * sizeof(agenda);
 
-    nome = pB + sizeof(int)*2+(sizeof(char)*20 + sizeof(int))*(*qnt-1);
-    num = pB + sizeof(int)*2+(sizeof(char)*20 + sizeof(int))*(*qnt-1) + sizeof(char)*20;
+
 
     printf("Nome: \n");
-    scanf("%s20", nome);
+    scanf("%[^\0]s", pessoa->nome);
 
     printf("Numero: \n");
-    scanf("%d", numero);
+    scanf("%d", pessoa->num);
 
 }
 
 void buscaContato(void *pB){
+    Printf("Digite o nome: \n");
+    scanf("%[^\0]s", auxc);
+
+    for(*i=0; *i<qnt; (*i)++){
+                pessoa = pB + 5*sizeof(int) + i*sizeof(agenda);
+                printf("Nome: %s\n", pessoa->nome);
+                printf("Numero: %d\n", pessoa->num);
+
 
 }
 
@@ -95,22 +106,19 @@ void apagarContato(void *pB){}
 
 void listarContatos(void *pB){
 
-if(qnt==0){
-printf("\nAgenda Vazia\n");
-break;
+    if(qnt == 0)
+        printf("\nAgenda Vazia\n");
+
+        else{
+
+            for(*i=0; *i<qnt; (*i)++){
+                pessoa = pB + 5*sizeof(int) + i*sizeof(agenda);
+                printf("Nome: %s\n", pessoa->nome);
+                printf("Numero: %d\n", pessoa->num);
+            }
+        }
 }
-    else{
 
-for(int i=0;i<qnt;i++){
-
-nome = pB + sizeof(int)*2+(sizeof(char)*20 + sizeof(int))*(*qnt-1);
-num = pB + sizeof(int)*2+(sizeof(char)*20 + sizeof(int))*(*qnt-1) + sizeof(char)*20;
-
-}
-
-
-
-}
 
 void ordenacaoBF(void *pB){}
 
