@@ -1,126 +1,177 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-void novoContato(void *pB);
-void buscaContato(void *pB);
-void apagarContato(void *pB);
-void listarContatos(void *pB);
-void ordenaçaoInsert(void *pB);
+void novoContato();
+void buscaContato();
+void apagarContato();
+void listarContatos();
+void aponta(); // função para ajustar os ponteiros após os reallocs e malloc
+
 
 typedef struct agenda{
-    char nome[20];
+    char nome[30];
     int num;
-};
+}agenda;
 
-void *pB = NULL;
-int *qnt = NULL;
-int *i = NULL;
-int *aux = NULL;
-int *j = NULL;
+void *pB = NULL; // Ponteiro void buffer - todos dados, valores etc armazenados nele
+
+//ponteiros abaixo em ordem que estao amazenados no buffer
+
+int *qnt = NULL; // Guarda o numero de srructs(pessoas) da agenda
+int *i = NULL; // variavel auxiliar
+int *j = NULL;// variavel auxiliar
+int *opc = NULL;// variavel para as opcoes do switch
+
+char *auxc = NULL;// string auxiliar
+
+//ponteiros para as structs(pessoas) da agenda
+
 agenda *pessoa = NULL;
-char *auxc = NULL;
-
+agenda *pessoa2 = NULL;
 
 int main()
 {
 
-    int *opc;
-
-    if( !(pB = malloc(5*sizeof(int) + 30*sizeof(char) + sizeof(agenda))) )
+    if( !( pB = malloc(4 * sizeof(int) + 30 * sizeof(char) ) ) )
             exit(1);
 
-
-    opc = pB;
-    qnt = pB + sizeof(int);
+    aponta();
 
     *qnt = 0;
 
     do{
        printf("1 - Novo Contato\n2 - Busca\n3- Apagar Contato\n4 - Listar Contatos\n0 - Sair\n");
-       scanf("%d", aux);
+       scanf("%d", opc);
+       getchar();
+       printf("\n");
 
-       switch(*aux){
+       switch(*opc){
 
        case 1:
-        novoContato(pB);
+            novoContato();
        break;
 
        case 2:
-        buscaContato(pB);
+            if(!(*qnt)){
+                printf("lista vazia\n");
+            }else{
+                buscaContato();
+                if(!strcmp(pessoa->nome,auxc)){
+                    printf("\nNome: %s\n", pessoa->nome);
+                    printf("Numero: %d\n\n", pessoa->num);
+                }
+            }
        break;
 
        case 3:
-        apagarContato(pB);
+            apagarContato();
        break;
 
        case 4:
-        listarContatos(pB);
+            listarContatos();
        break;
 
        case 0:
-        return 0;
        break;
 
        default :
         printf("\nOpcao Invalida\n");
        }
 
-    }while(opc!=0);
+    }while(*opc != 0);
 
     return 0;
 }
 
-void novoContato(void *pB){
-
-    *qnt ++;
-
-    if(*qnt == 1)
-        pessoa = pB + 5*sizeof(int) + 30*sizeof(char);
-        else
-            pB = realloc(pB, 5*sizeof(int) + 30*sizeof(char) + *qnt * sizeof(agenda))
-            pessoa = pB + 5*sizeof(int) + 30*sizeof(char) + (*qnt - 1) * sizeof(agenda);
+void novoContato()
+{
+    (*qnt)++;
 
 
+    if(!(pB = realloc(pB, 4 * sizeof(int) + 30 * sizeof(char) + (*qnt) * sizeof(agenda))))
+        exit(1);
 
-    printf("Nome: \n");
-    scanf("%[^\0]s", pessoa->nome);
+    aponta();
 
-    printf("Numero: \n");
-    scanf("%d", pessoa->num);
+    pessoa = pB + 4 * sizeof(int) + 30 * sizeof(char) + (*qnt-1) * sizeof(agenda);
 
-}
+    printf("Nome do novo contato: \n");
+    scanf("%[^\n]", &pessoa->nome);
 
-void buscaContato(void *pB){
-    Printf("Digite o nome: \n");
-    scanf("%[^\0]s", auxc);
-
-    for(*i=0; *i<qnt; (*i)++){
-                pessoa = pB + 5*sizeof(int) + i*sizeof(agenda);
-                printf("Nome: %s\n", pessoa->nome);
-                printf("Numero: %d\n", pessoa->num);
+    printf("Numero do novo contato: \n");
+    scanf("%d", &pessoa->num);
 
 
 }
 
-void apagarContato(void *pB){}
+void buscaContato()
+{
 
-void listarContatos(void *pB){
+    printf("Digite o nome: \n");
+    scanf("%[^\n]s", auxc);
 
-    if(qnt == 0)
-        printf("\nAgenda Vazia\n");
+    pessoa = pB + 4 * sizeof(int) + 30 * sizeof(char);
+
+    for(*i=0; *i<*qnt; (*i)++){
+
+        if(!strcmp(pessoa->nome,auxc))
+            break;
+
+        pessoa++;
+    }
+
+        if(strcmp(pessoa->nome,auxc))
+            printf("Nome nao encontrado!\n");
+}
+
+void apagarContato()
+{
+    if(!(*qnt)){
+        printf("lista vazia\n");
+        return;
+    }
+
+    buscaContato();
+
+    if(strcmp(pessoa->nome,auxc))
+        return;
+
+    pessoa2 = pessoa++;
+
+    for(*i=0; *i<(*qnt-1); (*i)++){
+        memcpy(pessoa2,pessoa,sizeof(agenda));
+        pessoa++;
+        pessoa2++;
+    }
+
+
+    (*qnt)--;
+    pB = realloc(pB, 4 * sizeof(int) + 30 * sizeof(char) + *qnt * sizeof(agenda));
+    aponta() ;
+}
+
+void listarContatos()
+{
+    if(*qnt == 0)
+        printf("\nAgenda Vazia\n\n");
 
         else{
-
-            for(*i=0; *i<qnt; (*i)++){
-                pessoa = pB + 5*sizeof(int) + i*sizeof(agenda);
+            pessoa = pB + 4 * sizeof(int) + 30 * sizeof(char);
+            for(*i=0; *i<*qnt; (*i)++){
                 printf("Nome: %s\n", pessoa->nome);
-                printf("Numero: %d\n", pessoa->num);
+                printf("Numero: %d\n\n", pessoa->num);
+                pessoa++;
             }
         }
 }
 
-
-void ordenacaoBF(void *pB){}
-
-void ordenacaoInsert(void *pB){}
-}()
+void aponta()
+{
+    //enderçando os ponteiros nesessarios
+    qnt = pB;
+    i = pB + sizeof(int);
+    j = pB + 2 * sizeof(int);
+    opc = pB + 3 * sizeof(int);
+    auxc = pB + 4 * sizeof(int);
+}
