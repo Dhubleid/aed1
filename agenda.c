@@ -68,7 +68,7 @@ int main()
             apagarContato();
        break;
 
-       case 4:
+       case 4: pessoa = pB + 4 * sizeof(int) + 30 * sizeof(char);
             listarContatos();
        break;
 
@@ -137,10 +137,10 @@ void apagarContato()
     if(strcmp(pessoa->nome,auxc))
         return;
 
-    pessoa2 = pessoa++;
+    pessoa2 = pessoa+1;
 
     for(*i=0; *i<(*qnt-1); (*i)++){
-        memcpy(pessoa2,pessoa,sizeof(agenda));
+        memcpy(pessoa,pessoa2,sizeof(agenda));
         pessoa++;
         pessoa2++;
     }
