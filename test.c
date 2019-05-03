@@ -82,6 +82,8 @@ int main()
 
     }while(*opc != 0);
 
+    free(pB);
+
     return 0;
 }
 
