@@ -142,7 +142,7 @@ void apagarContato()
     pessoa2 = pessoa+1;
 
     for(*i=0; *i<(*qnt-1); (*i)++){
-        memcpy(pessoa,pessoa2,sizeof(agenda));
+        *pessoa = *pessoa2;
         pessoa++;
         pessoa2++;
     }
