@@ -89,7 +89,6 @@ void novoContato()
 {
     (*qnt)++;
 
-
     if(!(pB = realloc(pB, 4 * sizeof(int) + 30 * sizeof(char) + (*qnt) * sizeof(agenda))))
         exit(1);
 
@@ -102,13 +101,10 @@ void novoContato()
 
     printf("Numero do novo contato: \n");
     scanf("%d", &pessoa->num);
-
-
 }
 
 agenda *buscaContato()
 {
-
     printf("Digite o nome: \n");
     scanf("%[^\n]s", auxc);
 
@@ -136,7 +132,6 @@ void apagarContato()
         return;
     }
 
-
     pessoa2 = pessoa+1;
 
     for(*i=0; *i<(*qnt-1); (*i)++){
@@ -144,7 +139,6 @@ void apagarContato()
         pessoa++;
         pessoa2++;
     }
-
 
     (*qnt)--;
 
