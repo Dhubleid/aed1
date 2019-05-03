@@ -149,7 +149,10 @@ void apagarContato()
 
 
     (*qnt)--;
-    pB = realloc(pB, 4 * sizeof(int) + 30 * sizeof(char) + *qnt * sizeof(agenda));
+
+    if(!(pB = realloc(pB, 4 * sizeof(int) + 30 * sizeof(char) + *qnt * sizeof(agenda))))
+        exit(1);
+
     aponta() ;
 }
 
