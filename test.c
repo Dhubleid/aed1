@@ -117,13 +117,11 @@ agenda *buscaContato()
     for(*i=0; *i<*qnt; (*i)++){
 
         if(!strcmp(pessoa->nome,auxc))
-            break;
+            return pessoa;
 
         pessoa++;
     }
-
-       return !strcmp(pessoa->nome,auxc)? pessoa : NULL;
-
+    return NULL;
 }
 
 void apagarContato()
