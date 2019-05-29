@@ -1,56 +1,48 @@
-#include<stdio.h>
-#include<string.h>
-const int MAX = 10;
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX = 10;
 
-struct Aluno
+typedef struct person{
+    char name;
+    int age;
+}person;
+
+typedef struct personStack{
+    person persons[MAX];
+    int top;
+    int base;
+    int limit;
+}personStack;
+
+void reset(personStack *personS)
 {
-int ra;
-char nome[50];
-};
-
-struct Pilha{
-struct Aluno alunos[MAX];
-int topo;
-int base;
-int limite;
-};
-
-void Empty(){
-return pilha->topo == 0;
+    personS->persons = NULL;
+    personS->top = NULL;
+    personS->base = NULL;
 }
 
-void Reset(){
-pilha->topo = 0;
-pilha->base = 0;
-pilha->limite = MAX;
+int empty(personStack *personS)
+{
+    return personS->top == 0;
 }
 
-void Full(){
-return pilha->topo == MAX;
+int full(personStack *personS)
+{
+    return personS->top == MAX;
 }
 
 
+int push(personStack *personS)
+{
+    if(!full(personS)){
+        scanf("%[^/n]s", personS->persons[personS->top]->name);
+        scanf("%d",) personS->persons[personS->top]->age;);
+        personS->top++;
 
-int main() {
-	int x;
-	
-	
-	do {
-	printf ("digite 1 para resetar a pilha");
-	printf ("digite 2 para esvaziar a pilha");
-	printf ("digite 3 para  a pilha");
-	printf ("digite 4 para  a pilha");
-	printf ("digite 0 para sair");
-	scanf("%d",& x);
-	if (x==1) Reset();
-	if (x==2) Empty();
-	if (x==3) Full();
-	if (x==4) ();
-	if (x==5) ();
-	}
-	while (x<0);
-	
-	
-	
-  return 0;
+        return 1;
+    }
+
+    return 0;
 }
+
+int
