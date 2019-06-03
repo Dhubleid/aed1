@@ -14,7 +14,7 @@ int main()
     *qnt = 0;
 
     do{
-       printf("1 - Novo Contato\n2 - Busca\n3 - Apagar Contato\n4 - Listar Contatos\n5 - Insertion\n6 - Select\n0 - Sair\n");
+       printf("1 - Novo Contato\n2 - Busca\n3 - Apagar Contato\n4 - Listar Contatos\n5 - Insertion\n6 - Select\n7 - Quick\n8 - Bubble\n0 - Sair\n");
        scanf("%d", opc);
        getchar();
        printf("\n");
@@ -29,7 +29,7 @@ int main()
             if(!(*qnt))
                 printf("lista vazia\n");
             else{
-                if(pessoa = buscaContato()){
+                if((pessoa = buscaContato())){
                     printf("\nNome: %s\n", pessoa->nome);
                     printf("Numero: %d\n\n", pessoa->num);
                 }else
@@ -52,6 +52,14 @@ int main()
 
        case 6:
             selectSort();
+       break;
+
+       case 7:
+            quickSort(0, *qnt - 1);
+       break;
+
+       case 8:
+            bubbleSort();
        break;
 
        case 0:
