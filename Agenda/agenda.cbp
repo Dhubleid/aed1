@@ -31,20 +31,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="agenb.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="agenb.h" />
-		<Unit filename="main.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="ordenacao.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="ordenacao.h" />
 		<Extensions>
 			<code_completion />
+			<envvars />
 			<debugger />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

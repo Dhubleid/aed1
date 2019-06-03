@@ -1,8 +1,7 @@
-#ifndef ORDENACAO_H_INCLUDED
-#define ORDENACAO_H_INCLUDED
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
 int *comparaString(char *str, char *str2);
 void insertionSort();
-void selectSort();
-
-#endif // ORDENACAO_H_INCLUDED
