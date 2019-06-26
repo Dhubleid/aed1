@@ -39,7 +39,6 @@ void postOrder(BstNodeP *treePtr)
     if(!*treePtr)
         return;
 
-
     postOrder(&(*treePtr)->right);
 
     printf("\n\tNome: %s\n",(*treePtr)->data.name);
