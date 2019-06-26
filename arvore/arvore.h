@@ -3,7 +3,7 @@
 
 //Estruturas
 struct agenda{ //Estrutura Registro ou Dados
-    char name[30]; //name será usado como chave
+    char name[30]; //name serÃ¡ usado como chave
     int num;
 };
 typedef struct agenda agenda;
@@ -15,14 +15,14 @@ struct BstNode {
     BstNodeP right;
 };
 
-struct sentinel{ //Estrutura sentinela com o nó raiz e informações
+struct sentinel{ //Estrutura sentinela com o nÃ³ raiz e informaÃ§Ãµes
     BstNodeP rootTree; //Raiz
-    int countNodes; // Quantidades de nós
-    //char complete; // String está Completa?("Yes" e "No" ou "Empty")
+    int countNodes; // Quantidades de nÃ³s
+    //char complete; // String estÃ¡ Completa?("Yes" e "No" ou "Empty")
 };
 typedef struct sentinel sentinel;
 
-//Funções da Arvore
+//FunÃ§Ãµes da Arvore
 
 void searchT(agenda *agenda, BstNodeP *treePtr);
 
