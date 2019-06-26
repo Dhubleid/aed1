@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="arvore.h" />
+		<Unit filename="listagem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="listagem.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
