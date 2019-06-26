@@ -27,7 +27,6 @@ int main()
                 printf("Enter the number\n");
                 scanf("%d", &aux.num);
                 treePtr = &S.rootTree;
-                searchT(&aux, treePtr);
                 insertData(aux, treePtr);
                 S.countNodes++;
             break;
