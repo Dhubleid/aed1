@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1561851511 source:c:\users\pc\desktop\aed\arvoreavl\arvoreavl\avl.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"avl.h"
+
+1561849070 c:\users\pc\desktop\aed\arvoreavl\arvoreavl\avl.h
+
+1561853333 source:c:\users\pc\desktop\aed\arvoreavl\arvoreavl\main.c
+	<stdio.h>
+	<stdlib.h>
+	"avl.h"
+	"listagem.h"
+
+1561849294 source:c:\users\pc\desktop\aed\arvoreavl\arvoreavl\listagem.c
+	<stdio.h>
+	<stdlib.h>
+	"avl.h"
+	"listagem.h"
+
+1561849294 c:\users\pc\desktop\aed\arvoreavl\arvoreavl\listagem.h
+
