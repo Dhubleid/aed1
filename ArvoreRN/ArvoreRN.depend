@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1562710590 source:c:\users\pc\desktop\aed\arvorern\rn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"RN.h"
+
+1562710811 c:\users\pc\desktop\aed\arvorern\rn.h
+
+1561933429 source:c:\users\pc\desktop\aed\arvorern\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"RN.h"
+
+1562710787 source:c:\users\pc\desktop\aed\arvorern\listagem.c
+	<stdio.h>
+	<stdlib.h>
+	"RN.h"
+	"listagem.h"
+
+1562710754 c:\users\pc\desktop\aed\arvorern\listagem.h
+
