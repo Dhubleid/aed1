@@ -20,7 +20,7 @@ void Menu(LS List)
     nodePtr Aux;
     do{
         ClearScreen();
-        printf("\n1 - New Element\n2 - Remove\n3 - Sort\n4 - Clear List\n5 - Enlist\n6 - Change Head\n0 - Exit\n");
+        printf("\n1 - New Element\n2 - Remove\n3 - Sort\n4 - Clear List\n5 - Enlist\n6 - Change Head\n7 - Search\n0 - Exit\n");
         scanf("%d",&opt);
         getchar();
         switch(opt){
@@ -34,11 +34,7 @@ void Menu(LS List)
             break;
 
             case 3:
-                List->Head = MergeSort(List->Head);
-                Aux = List->Head;
-                while(Aux->Right)
-                    Aux = Aux->Right;
-                List->Last = Aux;
+                List->Head = MergeSort(List->Head, &List->Last);
             break;
 
             case 4:
@@ -56,6 +52,17 @@ void Menu(LS List)
                     printf("\nHead has been changed.\n");
                 else
                     printf("\nNot possible\n");
+                pressAnyKey();
+            break;
+
+            case 7:
+                printf("\nEnter the number to Search\n");
+                scanf("%d", &num);
+                if((Aux = Search(List->Head, num)))
+                    printf("\n\tNumber found on the list\n\t");
+                else
+                    printf("\nNumber not found\n");
+
                 pressAnyKey();
             break;
 

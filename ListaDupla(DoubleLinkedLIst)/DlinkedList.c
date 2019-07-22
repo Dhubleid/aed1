@@ -281,3 +281,14 @@ int changeHead(LS List, unsigned int num)
 
     return 1;
 }
+
+nodePtr Search(nodePtr Head, unsigned int numS)
+{
+    if(!Head)
+        return NULL;
+
+    if(Head->num != numS)
+        return Search(Head->Right, numS);
+
+    return Head;
+}

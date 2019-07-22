@@ -30,5 +30,6 @@ unsigned int *PopTop(LS List);
 unsigned int *PopEnd(LS List);
 unsigned int *PopNumber(LS List, nodePtr Head, unsigned int toBeRemoved);
 int changeHead(LS List, unsigned int num);
+nodePtr Search(nodePtr Head, unsigned int numS);
 
 #endif // DLINKEDLIST_H_INCLUDED

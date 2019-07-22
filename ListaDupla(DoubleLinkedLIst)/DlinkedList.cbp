@@ -38,6 +38,14 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menu.h" />
+		<Unit filename="merge.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="merge.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
