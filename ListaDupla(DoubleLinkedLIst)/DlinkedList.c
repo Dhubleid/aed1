@@ -93,7 +93,7 @@ int closerBeginning(int b, int e, int p) // b = Inicio, E = Fim e p = Posição
     if ((b + e) < 0) // Resultado negativo retorna 0 pois esta mais perto do fim
         return 0;
 
-    return 1; // Resultado 0 ou posivo retorna 1 pois esta mais perto do Inicio
+    return 1; // Resultado 0 ou positivo retorna 1 pois esta mais perto do Inicio
 }
 
 int pushMiddLe(LS List, unsigned int Data, int position) //Insere Na posição do Meio
@@ -171,6 +171,7 @@ void Enlist(LS List) //Lista a Lista da Cabeça para o fim ou do fim para o começ
                     printf("%d ", Aux->num);
                     Aux = Aux->Right;
                 }
+                printf("\n");
                 pressAnyKey();
             break;
 
@@ -208,6 +209,7 @@ unsigned int *PopTop(LS List)
         List->Last = NULL;
     unsigned int *R = malloc(sizeof(unsigned int));
     *R = Aux->num;
+    List->Count--;
     free(Aux);
 
     return R;
@@ -226,6 +228,7 @@ unsigned int *PopEnd(LS List)
         List->Head = NULL;
     unsigned int *R = malloc(sizeof(unsigned int));
     *R = Aux->num;
+    List->Count--;
     free(Aux);
 
     return R;
@@ -249,7 +252,7 @@ unsigned int *PopNumber(LS List, nodePtr Head, unsigned int toBeRemoved)
 
     unsigned int *R = malloc(sizeof(unsigned int));
     *R = Head->num;
-
+    List->Count--;
     free(Head);
     return R;
 }

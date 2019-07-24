@@ -21,21 +21,15 @@ nodePtr Merge(nodePtr First, nodePtr Second)
         return Second;
     }
 }
-nodePtr MergeSort(nodePtr Head, nodePtr *LastRef)
+nodePtr MergeSort(nodePtr Head)
 {
     if(!Head || !Head->Right)
         return Head;
 
     nodePtr Second = split(Head);
 
-    Head = MergeSort(Head,LastRef);
-    Second = MergeSort(Second,LastRef);
-
-    if((*LastRef)->num < Head->num)
-        (*LastRef) = Head;
-
-    if((*LastRef)->num < Second->num)
-        (*LastRef) = Second;
+    Head = MergeSort(Head);
+    Second = MergeSort(Second);
 
     return Merge(Head, Second);
 }

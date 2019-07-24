@@ -34,7 +34,10 @@ void Menu(LS List)
             break;
 
             case 3:
-                List->Head = MergeSort(List->Head, &List->Last);
+                List->Head = MergeSort(List->Head);
+                List->Last = List->Head;
+                    while(List->Last->Right)
+                        List->Last = List->Last->Right;
             break;
 
             case 4:
@@ -59,7 +62,7 @@ void Menu(LS List)
                 printf("\nEnter the number to Search\n");
                 scanf("%d", &num);
                 if((Aux = Search(List->Head, num)))
-                    printf("\n\tNumber found on the list\n\t");
+                    printf("\nNumber found on the list\n");
                 else
                     printf("\nNumber not found\n");
 
@@ -114,6 +117,7 @@ void menuPush(LS List)
                 scanf("%d",&position);
                 if(position < 0 || position > List->Count){
                     printf("\nInvalid Position!\n");
+                    pressAnyKey();
                     break;
                 }
                 printf("\nEnter the new Element\n");
